@@ -1,5 +1,5 @@
 '''
-Created on Oct 5, 2015
+Created on Sep 28, 2015
 
 @author: taivu
 '''
@@ -7,7 +7,6 @@ Created on Oct 5, 2015
 import numpy as np
 import theano
 import theano.tensor as T
-from theano.tensor.shared_randomstreams import RandomStreams
 from theano.tensor.nnet import conv
 from theano.tensor.signal import downsample
 from theano import function
@@ -15,7 +14,7 @@ from theano import function
 
 rng = np.random.RandomState(345)
 
-def ReLU(z):
+def ActiveFunction(z):
     return T.maximum(0.0, z)
 
 class ConvolLayer(object):
@@ -37,11 +36,11 @@ class ConvolLayer(object):
         """
         """
         inpt = T.tensor4(name='input')
-        w = T.tensor4(name='w', dtype= inpt.dtype)
-        b = T.vector(name='biases', dtype = 'float32')
+        w = T.tensor4(name='w', dtype= inpt.dtype) # weight
+        b = T.vector(name='biases', dtype = 'float32') # bias
                 
         z = conv.conv2d(inpt, w, subsample=(self.stride, self.stride))
-        a = ReLU(z + b.dimshuffle('x', 0, 'x', 'x'))
+        a = ActiveFunction(z + b.dimshuffle('x', 0, 'x', 'x')) # Active of the current layer
         f = function([inpt, w, b], a)
         
         self.active =  f(self.input, self.weights.get_value(), self.biases.get_value())
@@ -73,15 +72,16 @@ class FCLayer(object):
         self.inpt = inpt.reshape(self.size_before_reshape[0], -1)
         self.nb_neurons = nb_neurons
         self.weights = theano.shared(rng.uniform(size=(nb_neurons, inpt.shape[1])), name='weights', allow_downcast=True)
-        self.biases = theano.shared(rng.uniform(size=(nb_neurons, 1)), name='biases', allow_downcast=True)
+        self.biases = theano.shared(rng.uniform(size=(nb_neurons)), name='biases', allow_downcast=True)
         
     def forward_propagation(self):
         """
-        """
-        inpt = T.tensor(name='input')
-        w = T.tensor(name='weight')
-        z = T.dot(inpt, w) # Co van de ???
+        """        
+        inpt = T.matrix(name='input')
+        w = T.matrix(name='weight')
+        b = T.vector(name='bias')
+        z = T.dot(inpt, w.T) + b('x',0)
+        a = ActiveFunction(z)
+        f = function([inpt, w, b], a)
         
-    
-        
-        
+        self.active = f(self.inpt, self.weights, self.biases)
