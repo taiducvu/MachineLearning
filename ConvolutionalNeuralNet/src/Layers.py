@@ -13,8 +13,8 @@ from theano import function
 from theano.tensor.nnet import softmax
 from theano.tensor.shared_randomstreams import RandomStreams
 
-rng = np.random.RandomState(345)
-srng = RandomStreams(345)
+rng = np.random.RandomState(23455)
+
 
 def ActiveFunction(z):
     return T.maximum(0.0, z)
@@ -32,7 +32,13 @@ class ConvolLayer(object):
         self.name = "ConvolLayer"
         self.w_shape = w_shape
         self.stride = stride
-        self.weights = theano.shared(rng.uniform(size = w_shape), name='weights', allow_downcast=True)
+        
+        # Initialize the parameters of convol layer
+        fan_in = np.prod(w_shape[1:])
+        fan_out = (w_shape[0] * np.prod(w_shape[2:]) /np.prod((2,2)))
+        W_bound = np.sqrt(6. / (fan_in + fan_out))     
+        
+        self.weights = theano.shared(rng.uniform(low=-W_bound, high=W_bound, size = w_shape), name='weights', allow_downcast=True)
         self.biases = theano.shared(rng.uniform(size=w_shape[0]), name='biases', allow_downcast=True)
         
     def forward_propagation(self, inpt):
@@ -90,7 +96,7 @@ class FCLayer(object):
         """
         """
         self.size_before_reshape = inpt.shape
-        self.input = inpt.reshape(self.size_before_reshape[0], -1)
+        self.input = inpt.reshape((self.size_before_reshape[0], -1))
         ##self.weights = theano.shared(rng.uniform(size=(self.nb_neurons, self.input.shape[1])), name='weights', allow_downcast=True)
         
         #inpt = T.matrix(name='input')

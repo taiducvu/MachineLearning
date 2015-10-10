@@ -15,8 +15,8 @@ if __name__ == '__main__':
     training_data, validation_data, test_data = ml.load_data_unify()
     Xtrain, Ytrain = training_data
     
-    nb_sample = Xtrain.shape[0]
-    Xtrain = Xtrain.reshape(nb_sample, 1, 28, 28)
+    #nb_sample = Xtrain.shape[0]
+    #Xtrain = Xtrain.reshape(nb_sample, 1, 28, 28)
     
     convLayer = Layers.ConvolLayer((3, 1, 5, 5), 1)
     poolLayer = Layers.PoolLayer((2,2), 2)
@@ -29,6 +29,6 @@ if __name__ == '__main__':
     lsLayer.append(fcLayer)
     #lsLayer.append(outLayer)
     
-    cnn = Network.Network(Xtrain, Ytrain, lsLayer, 10, 0.1)
+    cnn = Network.Network(training_data, validation_data, lsLayer, 10, 0.1)
     cnn.cost()
-    cnn.SGD(1)
+    cnn.SGD(10)
