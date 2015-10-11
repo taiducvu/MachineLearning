@@ -9,9 +9,7 @@ import theano
 import theano.tensor as T
 from theano.tensor.nnet import conv
 from theano.tensor.signal import downsample
-from theano import function
 from theano.tensor.nnet import softmax
-from theano.tensor.shared_randomstreams import RandomStreams
 
 rng = np.random.RandomState(23455)
 
@@ -23,12 +21,9 @@ class ConvolLayer(object):
     
     def __init__(self, w_shape, stride):
         """
-            inpt: input of layer (mini_batch x depth x nb_row x nb_col)
-            w_shape: a tuple consists 4 elements: number of filters x depth of filter x filter_row x filter_col
-            stride:
-            weight: a matrix whose size is width of filter x height of filter x number of filters
+        w_shape: a tuple is (#filters, depth filter, width of filter, height of filter)
+        stride:
         """
-        #self.input = inpt
         self.name = "ConvolLayer"
         self.w_shape = w_shape
         self.stride = stride
@@ -43,40 +38,35 @@ class ConvolLayer(object):
         
     def forward_propagation(self, inpt):
         """
+        This method is used to define how to do forward propagation in ConvolLayer. Parameter:
+            + inpt: a 4D matrix whose size is (#samples, depth(#channels) of a sample, width of a sample,
+            height of a sample presents data of input of a convolutional layer.
         """
-        
-        #inpt = T.tensor4(name='input')
-        #w = T.tensor4(name='w') # weight
-        #b = T.vector(name='biases', dtype = 'float32') # bias
         self.input = inpt
                
         z = conv.conv2d(inpt, self.weights, subsample=(self.stride, self.stride))
-        self.active = ActiveFunction(z + self.biases.dimshuffle('x', 0, 'x', 'x')) # Active of the current layer
-        #f = function([inpt, w, b], a)        
-        #self.input = inpt
-        #self.active =  f(self.input, self.weights.get_value(), self.biases.get_value())
+        self.active = ActiveFunction(z + self.biases.dimshuffle('x', 0, 'x', 'x'))
         return self.active
 
 class PoolLayer(object):
     
     def __init__(self, window_shape, stride):
         """
+        window_shape: a tuple is (width of a window, height of a window)
+        stride:
         """
-        #self.input = inpt
         self.window_shape = window_shape
         self.stride = stride
         self.name = "PoolLayer"
     
     def forward_propagation(self, inpt):
         """
+        This method is used to define how to do forward propagation in PoolLayer. Parameter:
+            + inpt: a 4D matrix whose size is #inputs x depth(#channels) of a input x width of a input,
+            height of a input presents data of input of a Pool layer.
         """
-        
-        #inpt = T.tensor4(name='input')
-        self.active = downsample.max_pool_2d(inpt, ds=self.window_shape, ignore_border=False,
+        self.active = downsample.max_pool_2d(inpt, ds=self.window_shape, ignore_border=True,
                                                 st=(self.stride, self.stride))
-        #f = function([inpt], pooled_active)
-        
-        #self.active = f(self.input)
         self.input = inpt
         return self.active
 
@@ -84,11 +74,9 @@ class FCLayer(object):
     def __init__(self, w_shape, flag_last):
         """
         """
-        #self.size_before_reshape = inpt.shape
-        #self.inpt = inpt.reshape(self.size_before_reshape[0], -1)
         self.w_shape = w_shape
-        self.weights = theano.shared(rng.uniform(size= self.w_shape), name='weights', allow_downcast=True)
-        self.biases = theano.shared(rng.uniform(size=self.w_shape[0]), name='biases', allow_downcast=True)
+        self.weights = theano.shared(rng.randn(self.w_shape[0],self.w_shape[1])/np.sqrt(w_shape[1]), name='weights', allow_downcast=True)
+        self.biases = theano.shared(rng.randn(self.w_shape[0]), name='biases', allow_downcast=True)
         self.flag_last = flag_last
         self.name = "FCLayer"
         
@@ -97,18 +85,9 @@ class FCLayer(object):
         """
         self.size_before_reshape = inpt.shape
         self.input = inpt.reshape((self.size_before_reshape[0], -1))
-        ##self.weights = theano.shared(rng.uniform(size=(self.nb_neurons, self.input.shape[1])), name='weights', allow_downcast=True)
-        
-        #inpt = T.matrix(name='input')
-        #w = T.matrix(name='weight')
-        #b = T.vector(name='bias')
         z = T.dot(self.input, self.weights.T) + self.biases.dimshuffle('x',0)
         if(self.flag_last == False):            
             self.active = ActiveFunction(z)
         else:
             self.active = softmax(z)
-            
-        #f = function([inpt, w, b], a)
-        
-        #self.active = f(self.inpt, self.weights, self.biases)
         return self.active
