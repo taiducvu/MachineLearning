@@ -52,7 +52,8 @@ class Network(object):
             a = layer.forward_propagation(a)
         
         ## Define functions such as cost function, predict function, ... 
-        cost = -T.mean(T.log(a)[T.arange(y.shape[0]), y])
+        cost = -T.mean(T.log(a)[T.arange(y.shape[0]), y.T])
+        
         predict = T.argmax(a, axis=1, keepdims=True)
         error = T.mean(T.neq(predict, y))
         
@@ -73,7 +74,6 @@ class Network(object):
         
         
         for l, i in zip(idx, xrange(len(idx))):
-            #(self.eta/self.mini_batch_size)
             updates.append((self.layers[l].weights, self.layers[l].weights - (eta * gw[i])))
             updates.append((self.layers[l].biases, self.layers[l].biases - (eta * gb[i])))
             
@@ -99,8 +99,6 @@ class Network(object):
                 Xtrain_batch = self.Xtrain[mini_batch_id,:,:,:]
                 Ytrain_batch = self.Ytrain[mini_batch_id,:]
                 self.train_model(Xtrain_batch, Ytrain_batch)
+                
             err = self.validate_model(self.Xvalidate, self.Yvalidate)
             print('epoch %i, validation error %f' %(epoch, err))
-            
-            
-            

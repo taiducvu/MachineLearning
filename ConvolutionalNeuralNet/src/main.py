@@ -10,7 +10,7 @@ import mnist_loader as ml
 
 if __name__ == '__main__':
     
-    training_data, validation_data, test_data = ml.load_data_unify()
+    training_data, validation_data, test_data = ml.load_data_unify() # This source code is written by Bao Chiem
 
     
     convLayer = Layers.ConvolLayer((3, 1, 5, 5), 1)
