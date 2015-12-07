@@ -1,0 +1,13 @@
+INSTUPLayers
+/home/tai/MachineLearning/NeuralNetwork/src/Layers.py
+INFOS:&&3|1|2|0&&2|3|2|0&&1|4|2|0&&2|5|2|4&&3|6|2|7&&3|8|2|7&&3|9|2|7&&2|10|2|4
+Layer=4
+__init__=5
+last_flag=9
+Layer.__init__=7
+biases=8
+weights=6
+forward_propagation=10
+Layers=2
+ReLU=3
+rng=1

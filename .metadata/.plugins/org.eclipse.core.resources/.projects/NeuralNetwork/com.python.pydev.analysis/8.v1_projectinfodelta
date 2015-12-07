@@ -1,0 +1,10 @@
+INSTUPmain
+/home/tai/MachineLearning/NeuralNetwork/src/main.py
+INFOS:&&3|1|2|0&&3|3|2|0&&3|4|2|0&&3|5|2|0&&3|6|2|0&&3|7|2|0
+outLayer=5
+fcLayer=4
+poolLayer=3
+convLayer=1
+lsLayer=6
+cnn=7
+main=2

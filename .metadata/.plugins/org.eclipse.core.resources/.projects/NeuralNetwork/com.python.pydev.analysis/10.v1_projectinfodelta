@@ -1,0 +1,9 @@
+INSTUPmnist_loader
+/home/tai/MachineLearning/NeuralNetwork/src/mnist_loader.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0
+vectorized_result=4
+load_data=1
+mnist_loader=2
+load_data_wrapper=3
+load_data_vectorized=6
+load_data_unify=5

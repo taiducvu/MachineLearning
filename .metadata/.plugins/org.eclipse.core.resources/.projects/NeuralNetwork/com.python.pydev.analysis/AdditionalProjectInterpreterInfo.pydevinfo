@@ -1,0 +1,39 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/tai/MachineLearning/.metadata/.plugins/org.eclipse.core.resources/.projects/NeuralNetwork/com.python.pydev.analysis/v2_indexcache
+load_data|1449460786000000000|/home/tai/MachineLearning/NeuralNetwork/src/load_data.py
+Network|1449488665000000000|/home/tai/MachineLearning/NeuralNetwork/src/Network.py
+Layers|1449492752000000000|/home/tai/MachineLearning/NeuralNetwork/src/Layers.py
+-- END DISKCACHE
+-- START DICTIONARY
+7
+4=Layer
+5=Layer.__init__
+2=load_data
+3=Network
+6=Network.prepare
+1=Layers
+7=Network.__init__
+-- END DICTIONARY
+-- START TREE 1
+6
+lay|1|Layer!9@
+loa|1|load_data!18@
+net|1|Network!25@
+rel|1|ReLU!10@
+rng|1|rng!11@
+vec|1|vectorized_result!18@
+-- END TREE
+-- START TREE 2
+10
+__i|2|__init__!3&26@__init__!4&10@
+bia|1|biases!5&11@
+err|1|error!6&27@
+for|1|forward_propagation!4&10@
+las|1|last_flag!5&11@
+n_t|1|n_train_data!7&27@
+pre|2|predict!6&27@prepare!3&26@
+sgd|1|SGD!3&26@
+tra|1|train_model!6&27@
+wei|1|weights!5&11@
+-- END TREE
