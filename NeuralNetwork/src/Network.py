@@ -7,6 +7,7 @@ import theano
 import Layers
 import theano.tensor as T
 import numpy as np
+import Algorithms
 
 class Network(object):
     def __init__(self, training_data, validation_data, ls_layers, optimize_method=True):
@@ -37,7 +38,7 @@ class Network(object):
         ls_weights = []
         ls_biases = []
         
-        updates = []
+        #updates = []
         
         for layer in self.layers:
             ls_weights.append(layer.weights)
@@ -47,11 +48,14 @@ class Network(object):
         grad_Ws = T.grad(cost, ls_weights)
         grad_Bs = T.grad(cost, ls_biases)
         
-        for layer, grad_w, grad_b  in zip(self.layers, grad_Ws, grad_Bs):
-            updates.append((layer.weights, layer.weights - (eta * grad_w)))
-            updates.append((layer.biases, layer.biases - (eta * grad_b)))
+        #for layer, grad_w, grad_b  in zip(self.layers, grad_Ws, grad_Bs):
+        #    updates.append((layer.weights, layer.weights - (eta * grad_w)))
+        #    updates.append((layer.biases, layer.biases - (eta * grad_b)))
+        
+        ## choose a optimization algorithm
+        opt_alg = Algorithms.Momentum(eta, 0.1)
             
-        self.train_model = theano.function([x, y], cost, updates=updates, allow_input_downcast=True)
+        self.train_model = theano.function([x, y], cost, updates=opt_alg.Update(self.layers, grad_Ws, grad_Bs), allow_input_downcast=True)
         self.predict = theano.function([x], predict)
         self.error = theano.function([x, y], error, allow_input_downcast=True)
         
