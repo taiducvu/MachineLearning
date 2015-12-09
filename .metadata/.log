@@ -1572,3 +1572,546 @@ java.io.FileNotFoundException: /home/tai/MachineLearning/.metadata/.plugins/org.
 	at org.python.pydev.debug.newconsole.PydevConsoleFactory.access$1(PydevConsoleFactory.java:163)
 	at org.python.pydev.debug.newconsole.PydevConsoleFactory$1.run(PydevConsoleFactory.java:93)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 09:42:47.237
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 09:42:47.239
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 09:47:13.283
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 09:47:13.284
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 10:00:36.956
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFor(MakeAstValidForPrettyPrintingVisitor.java:457)
+	at org.python.pydev.parser.jython.ast.For.accept(For.java:114)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFor(MakeAstValidForPrettyPrintingVisitor.java:457)
+	at org.python.pydev.parser.jython.ast.For.accept(For.java:114)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 10:06:29.333
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 10:06:29.334
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 10:13:06.700
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFor(MakeAstValidForPrettyPrintingVisitor.java:457)
+	at org.python.pydev.parser.jython.ast.For.accept(For.java:114)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFor(MakeAstValidForPrettyPrintingVisitor.java:457)
+	at org.python.pydev.parser.jython.ast.For.accept(For.java:114)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:18:28.300
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitClassDef(MakeAstValidForPrettyPrintingVisitor.java:722)
+	at org.python.pydev.parser.jython.ast.ClassDef.accept(ClassDef.java:166)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:22:11.751
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:22:11.753
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:28:10.774
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:28:10.776
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:28:16.547
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:45:18.757
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 11:45:18.759
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+!SESSION 2015-12-09 15:02:16.642 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.python.pydev.shared_core 1 1 2015-12-09 15:46:15.553
+!MESSAGE No existing console history at: /home/tai/MachineLearning/.metadata/.plugins/org.python.pydev.shared_interactive_console/history.py
+!STACK 0
+java.io.FileNotFoundException: /home/tai/MachineLearning/.metadata/.plugins/org.python.pydev.shared_interactive_console/history.py (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.load(ScriptConsoleGlobalHistory.java:96)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.<init>(ScriptConsoleGlobalHistory.java:45)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.<clinit>(ScriptConsoleGlobalHistory.java:37)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleHistory.<init>(ScriptConsoleHistory.java:56)
+	at org.python.pydev.shared_interactive_console.console.ui.ScriptConsole.<init>(ScriptConsole.java:183)
+	at org.python.pydev.debug.newconsole.PydevConsole.<init>(PydevConsole.java:84)
+	at org.python.pydev.debug.newconsole.PydevConsoleFactory.connectDebugger(PydevConsoleFactory.java:169)
+	at org.python.pydev.debug.newconsole.PydevConsoleFactory.access$1(PydevConsoleFactory.java:163)
+	at org.python.pydev.debug.newconsole.PydevConsoleFactory$1.run(PydevConsoleFactory.java:93)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 16:29:30.684
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 16:29:30.687
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:31:59.460
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:31:59.461
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:32:39.259
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:32:39.260
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:34:00.836
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitClassDef(MakeAstValidForPrettyPrintingVisitor.java:722)
+	at org.python.pydev.parser.jython.ast.ClassDef.accept(ClassDef.java:166)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:36:49.524
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Subscript[value=Name[id=training_data_id, ctx=Load, reserved=false], slice=Slice[lower=Name[id=start_idx, ctx=Load, reserved=false], upper=BinOp[left=Name[id=start_idx, ctx=Load, reserved=false], op=Add, right=Name[id=mnb_size, ctx=Load, reserved=false]], step=null], ctx=Load]], Slice[lower=null, upper=null, step=null]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:36:49.525
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:39:22.524
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitClassDef(MakeAstValidForPrettyPrintingVisitor.java:722)
+	at org.python.pydev.parser.jython.ast.ClassDef.accept(ClassDef.java:166)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:41:02.012
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitFunctionDef(MakeAstValidForPrettyPrintingVisitor.java:862)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitClassDef(MakeAstValidForPrettyPrintingVisitor.java:722)
+	at org.python.pydev.parser.jython.ast.ClassDef.accept(ClassDef.java:166)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:50:11.380
+!MESSAGE Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+!STACK 0
+java.lang.RuntimeException: Unhandled: ExtSlice[dims=[Index[value=Call[func=Attribute[value=Name[id=T, ctx=Load, reserved=false], attr=NameTok[id=arange, ctx=Attrib], ctx=Load], args=[Subscript[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=shape, ctx=Attrib], ctx=Load], slice=Index[value=Num[n=0, type=Int, num=0]], ctx=Load]], keywords=[], starargs=null, kwargs=null]], Index[value=Attribute[value=Name[id=y, ctx=Load, reserved=false], attr=NameTok[id=T, ctx=Attrib], ctx=Load]]]]
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.unhandled_node(MakeAstValidForPrettyPrintingVisitor.java:105)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitExtSlice(VisitorBase.java:345)
+	at org.python.pydev.parser.jython.ast.ExtSlice.accept(ExtSlice.java:79)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitSubscript(MakeAstValidForPrettyPrintingVisitor.java:933)
+	at org.python.pydev.parser.jython.ast.Subscript.accept(Subscript.java:93)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.handleArguments(MakeAstValidForPrettyPrintingVisitor.java:1067)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitCall(MakeAstValidForPrettyPrintingVisitor.java:612)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:131)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitUnaryOp(MakeAstValidForPrettyPrintingVisitor.java:215)
+	at org.python.pydev.parser.jython.ast.UnaryOp.accept(UnaryOp.java:82)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.visitAssign(MakeAstValidForPrettyPrintingVisitor.java:184)
+	at org.python.pydev.parser.jython.ast.Assign.accept(Assign.java:90)
+	at org.python.pydev.parser.prettyprinterv2.MakeAstValidForPrettyPrintingVisitor.makeValid(MakeAstValidForPrettyPrintingVisitor.java:171)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:232)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-12-09 17:50:11.381
+!MESSAGE String index out of range: -4
+!STACK 0
+java.lang.StringIndexOutOfBoundsException: String index out of range: -4
+	at org.python.pydev.shared_core.string.FastStringBuffer.delete(FastStringBuffer.java:520)
+	at org.python.pydev.parser.prettyprinterv2.WriteStateV2.dedent(WriteStateV2.java:64)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.writeLinePart(PrettyPrinterV2.java:241)
+	at org.python.pydev.parser.prettyprinterv2.PrettyPrinterV2.print(PrettyPrinterV2.java:163)
+	at org.python.pydev.editor.hover.PyTextHover.printAst(PyTextHover.java:321)
+	at org.python.pydev.editor.hover.PyTextHover.getDocstringHover(PyTextHover.java:274)
+	at org.python.pydev.editor.hover.PyTextHover.getHoverInfo(PyTextHover.java:144)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)

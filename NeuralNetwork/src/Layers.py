@@ -32,4 +32,12 @@ class Layer(object):
             active = softmax(z.T)
             
         return active
+    
+    def forward_propagation_NAG(self, inpt, velocity, alph):
+        z = T.dot(self.weights + alph*velocity, inpt) + self.biases.dimshuffle(0,'x')
+        if self.last_flag == False:
+            active = ReLU(z)
+        else:
+            active = softmax(z.T)            
+        return active
         

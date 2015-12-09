@@ -14,14 +14,37 @@ rng = np.random.RandomState()
 class SGD(object):
     def __init__(self, learning_rate):
         self.eta = learning_rate
+    
+    def Update(self, ls_layers):
+        x = T.matrix(name='x')
+        y = T.matrix(name='y', dtype='int32')
         
-    def Update(self, ls_layers, grad_Ws, grad_Bs):
+        ## Forward propagation
+        a = x.T
+        for layer in self.layers:
+            a = layer.forward_propagation(a)
+            
+        ## Define functions such as cost function, predict Function
+        cost = -T.mean(T.log(a)[T.arange(y.shape[0]), y.T])
+        
+        ls_weights = []
+        ls_biases = []
+        
+        for layer in self.layers:
+            ls_weights.append(layer.weights)
+            ls_biases.append(layer.biases)
+            
+        ## Compute gradient descent the cost function
+        grad_Ws = T.grad(cost, ls_weights)
+        grad_Bs = T.grad(cost, ls_biases)
+
         updates = []
         for layer, grad_w, grad_b in zip(ls_layers, grad_Ws, grad_Bs):
             updates.append((layer.weights, layer.weights - (self.eta * grad_w)))
             updates.append((layer.biases, layer.biases - (self.eta * grad_b)))
-        
-        return updates
+
+        self.train_model = theano.function([x, y], cost, updates=updates, allow_input_downcast=True)
+
 
 class Momentum(object):
     def __init__(self, learning_rate, alph):
@@ -29,15 +52,82 @@ class Momentum(object):
         self.velocity = []
         self.alpha = alph
         
-    def Update(self, ls_layers, grad_Ws, grad_Bs):
+    def Update(self, ls_layers):
+        x = T.matrix(name='x')
+        y = T.matrix(name='y', dtype='int32')
+        
+        ## Forward propagation
+        a = x.T
+        for layer in self.layers:
+            a = layer.forward_propagation(a)
+            
+        ## Define functions such as cost function, predict Function
+        cost = -T.mean(T.log(a)[T.arange(y.shape[0]), y.T])
+        
+        ls_weights = []
+        ls_biases = []
+        
+        for layer in self.layers:
+            ls_weights.append(layer.weights)
+            ls_biases.append(layer.biases)
+            
+        ## Compute gradient descent the cost function
+        grad_Ws = T.grad(cost, ls_weights)
+        grad_Bs = T.grad(cost, ls_biases)
+
         updates = []        
-        for layer in ls_layers:        
-            self.velocity.append(theano.shared(rng.randn(layer.weights.get_value().shape[0],layer.weights.get_value().shape[1]),
+        for layer in ls_layers:
+            self.velocity.append(theano.shared(np.zeros((layer.weights.get_value().shape[0],layer.weights.get_value().shape[1])),
                                           allow_downcast=True))
             
         for layer, grad_w, grad_b, v in zip(ls_layers, grad_Ws, grad_Bs, self.velocity):
-            updates.append((v, self.alpha*v + self.eta*grad_w))
+            updates.append((v, self.alpha*v - self.eta*grad_w))
             updates.append((layer.weights, layer.weights + v))
             updates.append((layer.biases, layer.biases - (self.eta * grad_b)))
+
+        self.train_model = theano.function([x, y], cost, updates=updates, allow_input_downcast=True)
+        return self.train_model
+    
+class NesterovMomentum(object):
+    def __init__(self, learning_rate, alph):
+        self.eta = learning_rate
+        self.velocity = []
+        self.alpha = alph
+    
+    def Update(self, ls_layers):
+        x = T.matrix(name='x')
+        y = T.matrix(name='y', dtype='int32')
+        
+        ## Forward propagation
+        a = x.T
+        for layer in ls_layers:
+            v = theano.shared(np.zeros((layer.weights.get_value().shape[0],layer.weights.get_value().shape[1])),
+                              allow_downcast=True)
+            self.velocity.append(v)
+            a = layer.forward_propagation_NAG(a, v, self.alpha)
             
-        return updates                          
+        ## Define functions such as cost function, predict Function
+        cost = -T.mean(T.log(a)[T.arange(y.shape[0]), y.T])
+        
+        ls_weights = []
+        ls_biases = []
+        
+        for layer in ls_layers:
+            ls_weights.append(layer.weights)
+            ls_biases.append(layer.biases)
+            
+        ## Compute gradient descent the cost function
+        grad_Ws = T.grad(cost, ls_weights)
+        grad_Bs = T.grad(cost, ls_biases)
+
+        updates = []
+        for layer, grad_w, grad_b, v in zip(ls_layers, grad_Ws, grad_Bs, self.velocity):
+            updates.append((v, self.alpha*v - self.eta*grad_w))
+            updates.append((layer.weights, layer.weights + v))
+            updates.append((layer.biases, layer.biases - (self.eta * grad_b)))
+
+        self.train_model = theano.function([x, y], cost, updates=updates, allow_input_downcast=True)
+        
+        return self.train_model
+
+        

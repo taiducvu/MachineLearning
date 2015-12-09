@@ -2,36 +2,39 @@
 -- START DISKCACHE_2
 /home/tai/MachineLearning/.metadata/.plugins/org.eclipse.core.resources/.projects/NeuralNetwork/com.python.pydev.analysis/v2_indexcache
 mnist_loader|1449459938000000000|/home/tai/MachineLearning/NeuralNetwork/src/mnist_loader.py
-Network|1449586232000000000|/home/tai/MachineLearning/NeuralNetwork/src/Network.py
+Network|1449634744000000000|/home/tai/MachineLearning/NeuralNetwork/src/Network.py
 Layers|1449502035000000000|/home/tai/MachineLearning/NeuralNetwork/src/Layers.py
-Algorithms|1449590420000000000|/home/tai/MachineLearning/NeuralNetwork/src/Algorithms.py
-main|1449502372000000000|/home/tai/MachineLearning/NeuralNetwork/src/main.py
+Algorithms|1449635676000000000|/home/tai/MachineLearning/NeuralNetwork/src/Algorithms.py
+main|1449634769000000000|/home/tai/MachineLearning/NeuralNetwork/src/main.py
 -- END DISKCACHE
 -- START DICTIONARY
-13
-9=Momentum.__init__
-7=Momentum
-6=Layer
-12=SGD.__init__
-10=Layer.__init__
-8=SGD
+15
+8=Momentum
+11=Momentum.__init__
+14=SGD.__init__
+9=SGD
 3=mnist_loader
-5=Network
-11=Network.prepare
-2=Layers
-13=Network.__init__
 4=Algorithms
 1=main
+6=Layer
+12=Layer.__init__
+5=Network
+13=Network.prepare
+2=Layers
+15=Network.__init__
+10=NesterovMomentum.__init__
+7=NesterovMomentum
 -- END DICTIONARY
 -- START TREE 1
-12
-cnn|1|cnn!11@
+13
 fcl|1|fcLayer!11@
 lay|1|Layer!17@
 loa|4|load_data_vectorized!26@load_data!26@load_data_unify!26@load_data_wrapper!26@
 lsl|1|lsLayer!11@
 mom|1|Momentum!33@
+nes|1|NesterovMomentum!33@
 net|1|Network!41@
+nn|1|nn!11@
 out|1|outLayer!11@
 rel|1|ReLU!18@
 rng|2|rng!19@rng!35@
@@ -39,20 +42,19 @@ sgd|1|SGD!33@
 vec|1|vectorized_result!26@
 -- END TREE
 -- START TREE 2
-15
-__i|4|__init__!5&42@__init__!6&18@__init__!7&34@__init__!8&34@
-alp|1|alpha!9&35@
-bia|1|biases!10&19@
-err|1|error!11&43@
-eta|2|eta!9&35@eta!12&35@
+14
+__i|5|__init__!5&42@__init__!6&18@__init__!7&34@__init__!8&34@__init__!9&34@
+alp|2|alpha!10&35@alpha!11&35@
+bia|1|biases!12&19@
+err|1|error!13&43@
+eta|3|eta!10&35@eta!11&35@eta!14&35@
 for|1|forward_propagation!6&18@
-las|1|last_flag!10&19@
-lay|1|layers!13&43@
-n_t|1|n_train_data!13&43@
-pre|2|predict!11&43@prepare!5&42@
-sgd|1|SGD!5&42@
-tra|1|train_model!11&43@
-upd|2|Update!7&34@Update!8&34@
-vel|1|velocity!9&35@
-wei|1|weights!10&19@
+las|1|last_flag!12&19@
+lay|1|layers!15&43@
+n_t|1|n_train_data!15&43@
+pre|2|predict!13&43@prepare!5&42@
+tra|2|Train!5&42@train_model!13&43@
+upd|3|Update!7&34@Update!8&34@Update!9&34@
+vel|2|velocity!10&35@velocity!11&35@
+wei|1|weights!12&19@
 -- END TREE

@@ -1,1 +1,1 @@
-INStheano.compile.mode|/usr/local/lib/python2.7/dist-packages/theano/compile/mode.py
+INStheano.tensor.elemwise|/usr/local/lib/python2.7/dist-packages/theano/tensor/elemwise.py

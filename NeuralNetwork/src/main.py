@@ -12,12 +12,12 @@ if __name__ == '__main__':
     
     training_data, validation_data, test_data = ml.load_data_unify() # This source code is written by Bao Chiem
 
-    fcLayer = Layers.Layer((50, 784), False)
-    outLayer = Layers.Layer((10, 50), True)
+    fcLayer = Layers.Layer((70, 784), False)
+    outLayer = Layers.Layer((10, 70), True)
     
     lsLayer = []
     lsLayer.append(fcLayer)
     lsLayer.append(outLayer)
     
-    cnn = Network.Network(training_data, validation_data, lsLayer)
-    cnn.SGD(10, 20, 0.1)
+    nn = Network.Network(training_data, validation_data, lsLayer)
+    nn.Train(10, 20, 0.1)
