@@ -46,7 +46,6 @@ class Network(object):
         for i in range(len(self.ls_Alg)):
             error.append(T.mean(T.neq(predict[i], y)))
 
-        print len(self.layers)
         for alg, wlayer in zip(self.ls_Alg, self.layers):
             self.train_model.append(alg.Update(wlayer))
             
@@ -68,9 +67,6 @@ class Network(object):
         plt.ion() # enable interactivity
         fig=plt.figure() # make a figure
         
-        count = 10
-        best_err = 0
-        
         for epoch in xrange(max_epochs):
             np.random.shuffle(training_data_id)
             for start_idx in xrange(0, self.n_train_data, mnb_size):
@@ -82,23 +78,11 @@ class Network(object):
             for i in range(len(self.ls_Alg)):
                 self.error[i](self.Xtrain, self.Ytrain)
                 ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
-            
-            if  epoch == 0:
-                best_err = ls_vali_err[0][0]
-            
-            else:
-                if best_err > ls_vali_err[0][epoch]:
-                    count = 10
-                    best_err = ls_vali_err[0][epoch]
-                elif best_err < ls_vali_err[0][epoch] and count > 0:
-                    count = count - 1
-                else:
-                    break
-                    
-            x_axis = range(epoch+1)
-            plt.plot(x_axis, ls_vali_err[0],'r')
+             
+            x_axis = range(epoch+1) 
+            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g')
             plt.draw()
-            plt.pause(0.01)
+            plt.pause(0.01)     
             #train_err = self.error(self.Xvalidate, self.Yvalidate)
             #print('epoch %i, validation error %f' %(epoch, train_err))
             

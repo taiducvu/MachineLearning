@@ -96,7 +96,7 @@ class Network(object):
                     break
                     
             x_axis = range(epoch+1)
-            plt.plot(x_axis, ls_vali_err[0],'r')
+            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g')
             plt.draw()
             plt.pause(0.01)
             #train_err = self.error(self.Xvalidate, self.Yvalidate)
