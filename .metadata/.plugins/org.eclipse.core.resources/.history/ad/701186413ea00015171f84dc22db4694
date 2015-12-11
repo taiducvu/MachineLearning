@@ -99,14 +99,7 @@ class Network(object):
                         break
                 
                 x_axis = range(epoch+1)
-                plt.subplot(211)
-                plt.plot(x_axis, ls_train_err[0],'r')
-                plt.title('Training Error via each epoch')
-                
-                plt.subplot(212)
                 plt.plot(x_axis, ls_vali_err[0],'r')
-                plt.title('Test Error via each epoch')
-                
                 plt.draw()
                 plt.pause(0.01)
             else:

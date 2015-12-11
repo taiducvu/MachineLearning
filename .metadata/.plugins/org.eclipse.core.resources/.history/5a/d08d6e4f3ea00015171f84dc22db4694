@@ -19,8 +19,8 @@ if __name__ == '__main__':
     
     #Hien tai tao dang dung 1 thuat toan SGD muon 3 thuat toan thi bo 2 dau thang o duoi di
     lsAlg.append(Algorithms.SGD(0.1))
-    #lsAlg.append(Algorithms.Momentum(0.01, 0.9))
-    #lsAlg.append(Algorithms.NesterovMomentum(0.01, 0.9))
+    lsAlg.append(Algorithms.Momentum(0.01, 0.9))
+    lsAlg.append(Algorithms.NesterovMomentum(0.01, 0.9))
     
     for i in range(num_Alg):
         lsLayer.append([])
@@ -30,5 +30,5 @@ if __name__ == '__main__':
       
     
     #Set True neu muon early stoping + Khi set early stoping chi duoc dung 1 thuat toan
-    nn = Network.Network(training_data, validation_data, lsLayer, lsAlg, True)
+    nn = Network.Network(training_data, validation_data, lsLayer, lsAlg, False)
     nn.Train(50, 20, 0.1)
