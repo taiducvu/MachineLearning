@@ -1,1 +1,8 @@
-DELSTRNetwork
+INSTUPmain
+/home/tai/MachineLearning/NeuralNetwork/src/main.py
+INFOS:&&3|1|2|0&&3|3|2|0&&3|4|2|0&&3|5|2|0
+num_Alg=1
+nn=5
+lsLayer=4
+lsAlg=3
+main=2

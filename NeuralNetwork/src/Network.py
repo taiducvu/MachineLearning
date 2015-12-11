@@ -66,7 +66,7 @@ class Network(object):
             ls_vali_err.append([])        
         
         plt.ion() # enable interactivity
-        fig=plt.figure() # make a figure
+        fig=plt.figure(1) # make a figure
         plt.xlabel('Epochs')
         plt.ylabel('Error')
         count = 10
@@ -81,7 +81,7 @@ class Network(object):
                     self.train_model[i](Xtrain_batch, Ytrain_batch)
                     
             for i in range(len(self.ls_Alg)):
-                self.error[i](self.Xtrain, self.Ytrain)
+                ls_train_err[i].append(self.error[i](self.Xtrain, self.Ytrain))
                 ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
             
             
@@ -102,12 +102,19 @@ class Network(object):
                 plt.plot(x_axis, ls_vali_err[0],'r')
                 plt.draw()
                 plt.pause(0.01)
-            else:        
+            else:
                 x_axis = range(epoch+1)
+                
+                plt.subplot(211)
+                plt.plot(x_axis, ls_train_err[0],'r', x_axis, ls_train_err[1],'g', x_axis, ls_train_err[2],'b')
+                plt.title('Training Error via each epoch')
+                
+                plt.subplot(212)
                 plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
+                plt.title('Test Error via each epoch')
+
                 plt.draw()
                 plt.pause(0.01)
-            
             
         
                     
