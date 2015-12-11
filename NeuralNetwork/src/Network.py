@@ -3,6 +3,8 @@ Created on Dec 7, 2015
 
 @author: tai
 '''
+import time
+import matplotlib.pyplot as plt
 import theano
 import Layers
 import theano.tensor as T
@@ -10,7 +12,7 @@ import numpy as np
 import Algorithms
 
 class Network(object):
-    def __init__(self, training_data, validation_data, ls_layers, optimize_method=True):
+    def __init__(self, training_data, validation_data, ls_layers, ls_Alg, early_stoping=False):
         """
         training_data: a list contains 2 objects that are training samples and their labels
         validation_data: a list contains 2 objects that are validation samples and their labels
@@ -20,34 +22,70 @@ class Network(object):
         self.Xvalidate, self.Yvalidate = validation_data
         self.n_train_data = self.Xtrain.shape[0]
         self.layers = ls_layers
+        self.early_stop = early_stoping
+        self.train_model = []
+        self.predict = []
+        self.error = []
+        self.ls_Alg = ls_Alg
          
     def prepare(self, eta):
         x = T.matrix(name='x')
         y = T.matrix(name='y', dtype='int32')
         
+        predict = []
+        error = []
         ## Forward propagation
-        a = x.T
-        for layer in self.layers:
-            a = layer.forward_propagation(a)
-            
+        for i in range(len(self.ls_Alg)):
+            a = x.T
+            for layer in self.layers[i]:
+                a = layer.forward_propagation(a)
+            predict.append(T.argmax(a, axis = 1, keepdims = True))
         ## Define functions such as cost function, predict Function
-        predict = T.argmax(a, axis = 1, keepdims = True)
-        error = T.mean(T.neq(predict, y))
+        #predict = T.argmax(a, axis = 1, keepdims = True)
+        
+        for i in range(len(self.ls_Alg)):
+            error.append(T.mean(T.neq(predict[i], y)))
 
-        #theano.function([x, y], cost, updates=opt_alg.Update(self.layers, grad_Ws, grad_Bs), allow_input_downcast=True)    
-        self.train_model = Algorithms.NesterovMomentum(0.1, 0.5).Update(self.layers)
-        self.predict = theano.function([x], predict)
-        self.error = theano.function([x, y], error, allow_input_downcast=True)
+        for alg, wlayer in zip(self.ls_Alg, self.layers):
+            self.train_model.append(alg.Update(wlayer))
+            
+        for i in range(len(self.ls_Alg)):
+            self.predict.append(theano.function([x], predict[i]))
+            self.error.append(theano.function([x, y], error[i], allow_input_downcast=True))
+    
         
     def Train(self, max_epochs, mnb_size, eta):
         self.prepare(eta)
         training_data_id = range(self.n_train_data)
+        
+        ls_train_err = []
+        ls_vali_err = []
+        for i in range(len(self.ls_Alg)):
+            ls_train_err.append([])
+            ls_vali_err.append([])        
+        
+        plt.ion() # enable interactivity
+        fig=plt.figure() # make a figure
+        
         for epoch in xrange(max_epochs):
             np.random.shuffle(training_data_id)
             for start_idx in xrange(0, self.n_train_data, mnb_size):
                 Xtrain_batch = self.Xtrain[training_data_id[start_idx:start_idx+mnb_size],:]
                 Ytrain_batch = self.Ytrain[training_data_id[start_idx:start_idx+mnb_size],:]
-                self.train_model(Xtrain_batch, Ytrain_batch)
-            train_err = self.error(self.Xvalidate, self.Yvalidate)
-            print('epoch %i, validation error %f' %(epoch, train_err))
+                for i in range(len(self.ls_Alg)):
+                    self.train_model[i](Xtrain_batch, Ytrain_batch)
+                    
+            for i in range(len(self.ls_Alg)):
+                self.error[i](self.Xtrain, self.Ytrain)
+                ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
+             
+            x_axis = range(epoch+1) 
+            plt.plot(x_axis, ls_vali_err[0])
+            plt.draw()
+            plt.pause(0.01)     
+            #train_err = self.error(self.Xvalidate, self.Yvalidate)
+            #print('epoch %i, validation error %f' %(epoch, train_err))
+            
+            
+        
                     

@@ -1,0 +1,23 @@
+'''
+Created on Dec 7, 2015
+
+@author: tai
+'''
+
+import Layers
+import Network
+import mnist_loader as ml
+
+if __name__ == '__main__':
+    
+    training_data, validation_data, test_data = ml.load_data_unify() # This source code is written by Bao Chiem
+
+    fcLayer = Layers.Layer((70, 784), False)
+    outLayer = Layers.Layer((10, 70), True)
+    
+    lsLayer = []
+    lsLayer.append(fcLayer)
+    lsLayer.append(outLayer)
+    
+    nn = Network.Network(training_data, validation_data, lsLayer)
+    nn.Train(10, 20, 1)
