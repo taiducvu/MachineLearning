@@ -67,8 +67,7 @@ class Network(object):
         
         plt.ion() # enable interactivity
         fig=plt.figure() # make a figure
-        plt.xlabel('Epochs')
-        plt.ylabel('Error')
+        
         count = 10
         best_err = 0
         
@@ -97,16 +96,11 @@ class Network(object):
                         count = count - 1
                     else:
                         break
-                
-                x_axis = range(epoch+1)
-                plt.plot(x_axis, ls_vali_err[0],'r')
-                plt.draw()
-                plt.pause(0.01)
-            else:        
-                x_axis = range(epoch+1)
-                plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
-                plt.draw()
-                plt.pause(0.01)
+                    
+            x_axis = range(epoch+1)
+            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
+            plt.draw()
+            plt.pause(0.01)
             
             
         
