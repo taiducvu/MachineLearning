@@ -83,22 +83,20 @@ class Network(object):
                 self.error[i](self.Xtrain, self.Ytrain)
                 ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
             
+            if  epoch == 0:
+                best_err = ls_vali_err[0][0]
             
-            if self.early_stop == True:
-                if  epoch == 0:
-                    best_err = ls_vali_err[0][0]
-                
+            else:
+                if best_err > ls_vali_err[0][epoch]:
+                    count = 10
+                    best_err = ls_vali_err[0][epoch]
+                elif best_err < ls_vali_err[0][epoch] and count > 0:
+                    count = count - 1
                 else:
-                    if best_err > ls_vali_err[0][epoch]:
-                        count = 10
-                        best_err = ls_vali_err[0][epoch]
-                    elif best_err < ls_vali_err[0][epoch] and count > 0:
-                        count = count - 1
-                    else:
-                        break
+                    break
                     
             x_axis = range(epoch+1)
-            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
+            plt.plot(x_axis, ls_vali_err[0],'r')
             plt.draw()
             plt.pause(0.01)
             

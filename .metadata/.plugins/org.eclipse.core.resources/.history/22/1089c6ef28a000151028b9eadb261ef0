@@ -98,7 +98,7 @@ class Network(object):
                         break
                     
             x_axis = range(epoch+1)
-            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
+            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[1],'b')
             plt.draw()
             plt.pause(0.01)
             

@@ -84,7 +84,7 @@ class Network(object):
                 ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
             
             
-            if self.early_stop == True:
+            if early_stoping == True:
                 if  epoch == 0:
                     best_err = ls_vali_err[0][0]
                 
@@ -98,7 +98,7 @@ class Network(object):
                         break
                     
             x_axis = range(epoch+1)
-            plt.plot(x_axis, ls_vali_err[0],'r', x_axis, ls_vali_err[1],'g', x_axis, ls_vali_err[2],'b')
+            plt.plot(x_axis, ls_vali_err[0],'r')
             plt.draw()
             plt.pause(0.01)
             
