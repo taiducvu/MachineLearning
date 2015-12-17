@@ -1,9 +1,0 @@
-'''
-Created on Dec 7, 2015
-
-@author: tai
-'''
-import theano.tensor as T
-
-def ReLU(x):
-    return T.maximum(0.0, x)

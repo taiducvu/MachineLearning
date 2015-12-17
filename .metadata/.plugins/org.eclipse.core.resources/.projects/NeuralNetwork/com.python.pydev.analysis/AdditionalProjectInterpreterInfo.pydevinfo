@@ -2,10 +2,10 @@
 -- START DISKCACHE_2
 /home/tai/MachineLearning/.metadata/.plugins/org.eclipse.core.resources/.projects/NeuralNetwork/com.python.pydev.analysis/v2_indexcache
 mnist_loader|1449459938000000000|/home/tai/MachineLearning/NeuralNetwork/src/mnist_loader.py
-Network|1449854656000000000|/home/tai/MachineLearning/NeuralNetwork/src/Network.py
+Network|1449862495000000000|/home/tai/MachineLearning/NeuralNetwork/src/Network.py
 Layers|1449652128000000000|/home/tai/MachineLearning/NeuralNetwork/src/Layers.py
 Algorithms|1449845805000000000|/home/tai/MachineLearning/NeuralNetwork/src/Algorithms.py
-main|1449854799000000000|/home/tai/MachineLearning/NeuralNetwork/src/main.py
+main|1449862526000000000|/home/tai/MachineLearning/NeuralNetwork/src/main.py
 -- END DISKCACHE
 -- START DICTIONARY
 20

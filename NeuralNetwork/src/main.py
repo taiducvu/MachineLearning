@@ -18,9 +18,10 @@ if __name__ == '__main__':
     lsLayer = []
     
     #Hien tai tao dang dung 1 thuat toan SGD muon 3 thuat toan thi bo 2 dau thang o duoi di
-    lsAlg.append(Algorithms.SGD(0.1))
+    #lsAlg.append(Algorithms.SGD(0.1))
     #lsAlg.append(Algorithms.Momentum(0.01, 0.9))
     #lsAlg.append(Algorithms.NesterovMomentum(0.01, 0.9))
+    lsAlg.append(Algorithms.AdaGrad(0.1))
     
     for i in range(num_Alg):
         lsLayer.append([])

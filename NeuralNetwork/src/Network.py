@@ -81,9 +81,12 @@ class Network(object):
                     self.train_model[i](Xtrain_batch, Ytrain_batch)
                     
             for i in range(len(self.ls_Alg)):
-                ls_train_err[i].append(self.error[i](self.Xtrain, self.Ytrain))
-                ls_vali_err[i].append(self.error[i](self.Xvalidate, self.Yvalidate))
+                errTrain = self.error[i](self.Xtrain, self.Ytrain)
+                errVali = self.error[i](self.Xvalidate, self.Yvalidate)
+                ls_train_err[i].append(errTrain)
+                ls_vali_err[i].append(errVali)
             
+            print 'Training Error %f, Validation Err %f',([errTrain, errVali])
             
             if self.early_stop == True:
                 if  epoch == 0:
